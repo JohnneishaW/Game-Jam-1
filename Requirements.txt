@@ -1,0 +1,11 @@
+Snake
+* linear movement
+On collisions:
+* if head of snake collides w/ snake's body --> kill snake
+* hits border --> kill snake
+
+Apple
+* start with  one apple
+* spawn one apple after snake collides with an apple
+* random spawn apple in a spot that isn't on snake
+* on collision w/ apple --> add 1 snake body part
