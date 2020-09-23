@@ -9,3 +9,9 @@ Apple
 * spawn one apple after snake collides with an apple
 * random spawn apple in a spot that isn't on snake
 * on collision w/ apple --> add 1 snake body part
+
+
+Steps:
+1) Snake to do linear movement - Johnneisha
+2) Randomly spawn apples inside camera - Ryan Mayse 
+3) On collision w/ apple --> add 1 to snake body
