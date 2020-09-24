@@ -12,6 +12,6 @@ Apple
 
 
 Steps:
-1) Snake to do linear movement - Johnneisha
+--COMPLETE-- 1) Snake to do linear movement - Johnneisha
 2) Randomly spawn apples inside camera - Ryan Mayse 
 3) On collision w/ apple --> add 1 to snake body
