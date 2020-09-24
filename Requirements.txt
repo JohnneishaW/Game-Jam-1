@@ -3,13 +3,14 @@ Snake
 On collisions:
 * if head of snake collides w/ snake's body --> kill snake
 * hits border --> kill snake
+* w/ apple --> add 1 to snake body
 
 Apple
-* start with  one apple
+* start with one apple
 * spawn one apple after snake collides with an apple
 * random spawn apple in a spot that isn't on snake
-* on collision w/ apple --> add 1 snake body part
-
+On Collisions:
+* w/ snake head --> transform apple (move to new location)
 
 Steps:
 --COMPLETE-- 1) Snake to do linear movement - Johnneisha
