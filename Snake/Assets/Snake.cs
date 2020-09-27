@@ -50,9 +50,6 @@ public class Snake : MonoBehaviour
     {
 
         Move();
-        
-        snakePosList.Insert(0, transform.position); //not sure if this works - Henry
-
 
         //movement
         //float horzIn = Input.GetAxis("Horizontal");
@@ -129,6 +126,7 @@ public class Snake : MonoBehaviour
             movingUpDown = false;
         }
 
+        snakePosList.Insert(0, transform.position); //not sure if this works - Henry
         transform.position = transform.position + newPosition;
     }
 
