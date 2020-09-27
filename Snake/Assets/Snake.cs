@@ -23,8 +23,8 @@ public class Snake : MonoBehaviour
     public GameObject downTeeth;
     public GameObject upTeeth;
 
-    // private int snakeSize;
-    // private List<Vector2Int> snakePosList;
+    private int snakeSize;
+    private List<Vector3> snakePosList;
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +50,14 @@ public class Snake : MonoBehaviour
     {
 
         Move();
+        
+        snakePosList.Insert(0, transform.position); //not sure if this works - Henry
+
+
         //movement
         //float horzIn = Input.GetAxis("Horizontal");
         //float vertIn = Input.GetAxis("Vertical");
        // transform.position = transform.position + new Vector3(horzIn * speed * Time.deltaTime, vertIn * speed * Time.deltaTime, 0);
-
     }
 
 
@@ -125,6 +128,7 @@ public class Snake : MonoBehaviour
             newPosition = new Vector2(-speed, 0);
             movingUpDown = false;
         }
+
         transform.position = transform.position + newPosition;
     }
 
