@@ -13,36 +13,32 @@ public class Snake : MonoBehaviour
     private bool movingUpDown = false;
     private Vector3 newPosition;
     //Eyes
-    public GameObject upRightEye;
-    public GameObject downRightEye;
-    public GameObject downLeftEye;
-    public GameObject upLeftEye;
+    public GameObject rightEye;
+    public GameObject leftEye;
+    public GameObject upEye;
+    public GameObject downEye;
     //Teeth
-    public GameObject rightTeeth1;
-    public GameObject rightTeeth2;
-    public GameObject downTeeth1;
-    public GameObject downTeeth2;
-    public GameObject leftTeeth1;
-    public GameObject leftTeeth2;
-    public GameObject upTeeth1;
-    public GameObject upTeeth2;
+    public GameObject rightTeeth;
+    public GameObject leftTeeth;
+    public GameObject downTeeth;
+    public GameObject upTeeth;
+
+    // private int snakeSize;
+    // private List<Vector2Int> snakePosList;
 
     // Start is called before the first frame update
     void Start()
     {
         //Start the game moving to the right
-        upRightEye.SetActive(true);
-        downRightEye.SetActive(true);
-        downLeftEye.SetActive(false);
-        upLeftEye.SetActive(false);
-        rightTeeth1.SetActive(true);
-        rightTeeth2.SetActive(true);
-        downTeeth1.SetActive(false);
-        downTeeth2.SetActive(false);
-        leftTeeth1.SetActive(false);
-        leftTeeth2.SetActive(false);
-        upTeeth1.SetActive(false);
-        upTeeth2.SetActive(false);
+        rightEye.SetActive(true);
+        leftEye.SetActive(false);
+        upEye.SetActive(false);
+        downEye.SetActive(false);
+
+        rightTeeth.SetActive(true);
+        downTeeth.SetActive(false);
+        leftTeeth.SetActive(false);
+        upTeeth.SetActive(false);
 
         //rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
@@ -67,37 +63,32 @@ public class Snake : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.DownArrow) && !movingUpDown)
         {
             //use the right teeth and eyes
-            upRightEye.SetActive(false);
-            downRightEye.SetActive(true);
-            downLeftEye.SetActive(true);
-            upLeftEye.SetActive(false);           
-            rightTeeth1.SetActive(false);
-            rightTeeth2.SetActive(false);
-            downTeeth1.SetActive(true);
-            downTeeth2.SetActive(true);
-            leftTeeth1.SetActive(false);
-            leftTeeth2.SetActive(false);
-            upTeeth1.SetActive(false);
-            upTeeth2.SetActive(false);
+            rightEye.SetActive(false);
+            leftEye.SetActive(false);
+            upEye.SetActive(false);
+            downEye.SetActive(true);  
+
+            rightTeeth.SetActive(false);
+            downTeeth.SetActive(true);
+            leftTeeth.SetActive(false);
+            upTeeth.SetActive(false);
 
             newPosition = new Vector2(0, -speed);
             movingUpDown = true;
+
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) && !movingUpDown)
         {
             //use the right teeth and eyes
-            upRightEye.SetActive(true);
-            downRightEye.SetActive(false);
-            downLeftEye.SetActive(false);
-            upLeftEye.SetActive(true);
-            rightTeeth1.SetActive(false);
-            rightTeeth2.SetActive(false);
-            downTeeth1.SetActive(false);
-            downTeeth2.SetActive(false);
-            leftTeeth1.SetActive(false);
-            leftTeeth2.SetActive(false);
-            upTeeth1.SetActive(true);
-            upTeeth2.SetActive(true);
+            rightEye.SetActive(false);
+            leftEye.SetActive(false);
+            upEye.SetActive(true);
+            downEye.SetActive(false);
+
+            rightTeeth.SetActive(false);
+            downTeeth.SetActive(false);
+            leftTeeth.SetActive(false);
+            upTeeth.SetActive(true);
 
             newPosition = new Vector2(0, speed);
             movingUpDown = true;
@@ -105,18 +96,15 @@ public class Snake : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && movingUpDown)
         {
             //use the right teeth and eyes
-            upRightEye.SetActive(true);
-            downRightEye.SetActive(true);
-            downLeftEye.SetActive(false);
-            upLeftEye.SetActive(false);
-            rightTeeth1.SetActive(true);
-            rightTeeth2.SetActive(true);
-            downTeeth1.SetActive(false);
-            downTeeth2.SetActive(false);
-            leftTeeth1.SetActive(false);
-            leftTeeth2.SetActive(false);
-            upTeeth1.SetActive(false);
-            upTeeth2.SetActive(false);
+            rightEye.SetActive(true);
+            leftEye.SetActive(false);
+            upEye.SetActive(false);
+            downEye.SetActive(false);
+
+            rightTeeth.SetActive(true);
+            downTeeth.SetActive(false);
+            leftTeeth.SetActive(false);
+            upTeeth.SetActive(false);
 
             newPosition = new Vector2(speed, 0);
             movingUpDown = false;
@@ -124,18 +112,15 @@ public class Snake : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && movingUpDown)
         {
             //use the right teeth and eyes
-            upRightEye.SetActive(false);
-            downRightEye.SetActive(false);
-            downLeftEye.SetActive(true);
-            upLeftEye.SetActive(true);
-            rightTeeth1.SetActive(false);
-            rightTeeth2.SetActive(false);
-            downTeeth1.SetActive(false);
-            downTeeth2.SetActive(false);
-            leftTeeth1.SetActive(true);
-            leftTeeth2.SetActive(true);
-            upTeeth1.SetActive(false);
-            upTeeth2.SetActive(false);
+            rightEye.SetActive(false);
+            leftEye.SetActive(true);
+            upEye.SetActive(false);
+            downEye.SetActive(false);
+
+            rightTeeth.SetActive(false);
+            downTeeth.SetActive(false);
+            leftTeeth.SetActive(true);
+            upTeeth.SetActive(false);
 
             newPosition = new Vector2(-speed, 0);
             movingUpDown = false;
