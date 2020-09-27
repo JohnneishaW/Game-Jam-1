@@ -127,6 +127,7 @@ public class Snake : MonoBehaviour
         }
 
         snakePosList.Insert(0, transform.position); //not sure if this works - Henry
+        
         transform.position = transform.position + newPosition;
     }
 
