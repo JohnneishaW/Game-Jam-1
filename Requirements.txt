@@ -14,6 +14,7 @@ On Collisions:
 
 Steps:
 --COMPLETE-- 1) Snake to do linear movement - Johnneisha
-2) Snake teeth on collision w/ camera border --> kill snake
-3) Randomly spawn apples inside camera - Ryan Mayse 
-4) Snake teeth on collision w/ apple --> add 1 to snake body - Henry Lin
+2) Snake teeth on collision w/ camera border --> kill snake 
+3) Randomly spawn apples inside camera - Ryan Mayse
+4) Snake teeth on collision w/ apple --> add 1 to snake body - Henry 
+5) Main menu and end game menu - Ryan Mc.
