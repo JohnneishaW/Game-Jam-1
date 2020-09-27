@@ -126,9 +126,14 @@ public class Snake : MonoBehaviour
             movingUpDown = false;
         }
 
-        snakePosList.Insert(0, transform.position); //not sure if this works - Henry
-        
+        snakePosList.Insert(0, transform.position); //not sure if this works, but its supposed to record the head's position everytime it's updated - Henry
+
+
         transform.position = transform.position + newPosition;
+
+        if (snakePosList.Count >= snakeBodySize + 1){ //this should cut the list down after the snake is no longer at the position - Henry
+            snakePosList.RemoveAt(snakePosList.Count - 1);
+        }
     }
 
 
