@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Snake : MonoBehaviour
 {
@@ -25,14 +26,30 @@ public class Snake : MonoBehaviour
     public GameObject upTeeth;
     private int timeDelay = 20;
 
-    public GameObject rootBody; 
+    public GameObject rootBody;
+
+    //screen border
+    public Transform borderTop;
+    public Transform borderBottom;
+    public Transform borderLeft;
+    public Transform borderRight;
+    //apple respawn loc
+    int newX = -100;
+    int newY = -100;
+
+    //Score
+    int score;
+    public TMPro.TextMeshProUGUI ScoreText;
+
 
     //private int snakeSize;
-   // private List<Vector3> snakePosList;
+    // private List<Vector3> snakePosList;
 
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+        ScoreText.text = "Score: " + score;
         //Start the game moving to the right
         rightEye.SetActive(true);
         leftEye.SetActive(false);
@@ -75,9 +92,25 @@ public class Snake : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Collision!");
-        Destroy(col.gameObject);    //Change this to respawn the apple
-
+        //update player's score
+        updateScore();
+        //Destroy(col.gameObject);    
+        /*respawn apple*/
+        //if apple's new location is on top of snake or default, generate a new random location
+        // while (newX == -100 || newY == -100 || newX == this.gameObject.transform.position.x || newY == this.gameObject.transform.position.y)
+        Debug.Log("Moving apple");
+        newX = (int)Random.Range(borderLeft.position.x + 1f, borderRight.position.x - 1f);
+        newY = (int)Random.Range(borderBottom.position.y + 1f, borderTop.position.y - 1f);
+        //move apple to new location
+        col.gameObject.transform.position = new Vector2(newX, newY);
         GrowSnake();
+    }
+
+    void updateScore()
+    {
+        Debug.Log("Updating score");
+        score += 1;
+        ScoreText.text = "Score: " + score;
     }
 
     void GrowSnake()
