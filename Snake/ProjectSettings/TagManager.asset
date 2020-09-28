@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - apple
+  - Tooth
+  - body
   layers:
   - Default
   - TransparentFX

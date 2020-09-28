@@ -80,6 +80,7 @@ public class Snake : MonoBehaviour
         if (timeDelay <= 0)
         {
             Move();
+            rootBody.GetComponent<BodyBehavior>().FindTail().GetComponent<BodyBehavior>().Move();
             timeDelay = 20;
         }
         timeDelay--;    
@@ -93,7 +94,7 @@ public class Snake : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Collision!");
+        
         //update player's score
         //Destroy(col.gameObject);    
         /*respawn apple*/
@@ -108,7 +109,8 @@ public class Snake : MonoBehaviour
             col.gameObject.transform.position = new Vector2(newX, newY);
             GrowSnake();
         }
-        else{
+        if (col.gameObject.tag == "Finish") 
+        { 
             Debug.Log("Snake dies");
             Destroy(this.gameObject);
             Application.Quit();
@@ -125,7 +127,7 @@ public class Snake : MonoBehaviour
 
     void GrowSnake()
     {
-        rootBody.GetComponent<BodyBehavior>().snakeTail.GetComponent<BodyBehavior>().Grow();
+        rootBody.GetComponent<BodyBehavior>().FindTail().GetComponent<BodyBehavior>().Grow();
     }
 
     void Move()
@@ -197,12 +199,6 @@ public class Snake : MonoBehaviour
         }
         oldPosition = transform.position;
         transform.position = transform.position + newPosition;
-
-        //snakePosList.Insert(0, transform.position); //not sure if this works, but its supposed to record the head's position everytime it's updated - Henry
-
-       // if (snakePosList.Count >= snakeSize + 1){ //this should cut the list down after the snake is no longer at the position - Henry
-        //    snakePosList.RemoveAt(snakePosList.Count - 1);
-        //}
     }
 
     
