@@ -10,7 +10,7 @@ public class Snake : MonoBehaviour
     //public float accelerationTime = 5f;
     //public float maxSpeed = 5f;
     //private Vector2 movement;
-    public float speed = 0.05f;
+    public float speed = 0.01f;
     public int moveDirection = 0;       // 0 = right, 1 = down, 2 = left, 3 = up
     private Vector3 newPosition;
     public Vector3 oldPosition;
@@ -87,24 +87,34 @@ public class Snake : MonoBehaviour
         //float horzIn = Input.GetAxis("Horizontal");
         //float vertIn = Input.GetAxis("Vertical");
        // transform.position = transform.position + new Vector3(horzIn * speed * Time.deltaTime, vertIn * speed * Time.deltaTime, 0);
+        
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Collision!");
         //update player's score
-        updateScore();
         //Destroy(col.gameObject);    
         /*respawn apple*/
         //if apple's new location is on top of snake or default, generate a new random location
         // while (newX == -100 || newY == -100 || newX == this.gameObject.transform.position.x || newY == this.gameObject.transform.position.y)
-        Debug.Log("Moving apple");
-        newX = (int)Random.Range(borderLeft.position.x + 1f, borderRight.position.x - 1f);
-        newY = (int)Random.Range(borderBottom.position.y + 1f, borderTop.position.y - 1f);
-        //move apple to new location
-        col.gameObject.transform.position = new Vector2(newX, newY);
-        GrowSnake();
+        if(col.gameObject.tag == "apple"){
+            updateScore();
+            Debug.Log("Moving apple");
+            newX = (int)Random.Range(borderLeft.position.x + 1f, borderRight.position.x - 1f);
+            newY = (int)Random.Range(borderBottom.position.y + 1f, borderTop.position.y - 1f);
+            //move apple to new location
+            col.gameObject.transform.position = new Vector2(newX, newY);
+            GrowSnake();
+        }
+        else{
+            Debug.Log("Snake dies");
+            Destroy(this.gameObject);
+            Application.Quit();
+        }
     }
+
 
     void updateScore()
     {

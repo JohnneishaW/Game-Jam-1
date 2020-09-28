@@ -16,7 +16,7 @@ Steps:
 --COMPLETED BY JOHNNEISHA-- 3) Randomly spawn apples inside camera
 --COMPLETED BY RYAN MAYSE-- 4) Snake teeth on collision w/ apple --> add 1 to snake body
 --COMPLETED BY JOHNNEISHA-- 5) Main menu play button - Assigned to Ryan Mc.
-  5) Snake teeth on collision w/ camera border --> kill snake 
+--COMPLETED BY HENRY--  5) Snake teeth on collision w/ camera border --> kill snake 
   6) Get snake body to curve naturally instead being a straight line when turning; follow along old position.
   7) End game menu - Assigned to Ryan Mc.
 --COMPLETED BY JOHNNEISHA-- 8) Update score when snake eats apple
